@@ -1,0 +1,73 @@
+.container {
+    width: 30vw;
+    height: 62vh;
+    display: grid;
+  
+    background-color: #1f378c;
+  
+    margin-top: 19vh;
+    margin-bottom: 19vh;
+    margin-right: 35vw;
+    margin-left: 35vw;
+    color: white;
+    align-items: center;
+    text-align: left;
+  }
+  button {
+    place-self: center;
+    background-color: #2db780;
+    height: 5vh;
+    color: white;
+  }
+  input {
+    height: 4vh;
+    width: 20vw;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+  }
+  button {
+    height: 6vh;
+    width: 20.2vw;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    margin-top: 2vh;
+    cursor: pointer;
+  }
+  
+  img {
+    place-self: center;
+    margin-top: 1vh;
+    width: 20vw;
+  }
+  .user-name {
+    place-self: center;
+    margin-top: 7vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .password {
+    place-self: center;
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .copyright {
+    place-self: center;
+    font-size: 2vh;
+    margin-top: 12vh;
+  }
+  #allRights {
+    font-size: 2vh;
+    place-self: center;
+    margin-bottom: 1vh;
+  }
+  label::after{
+    content:" *";
+    color: red;
+  }

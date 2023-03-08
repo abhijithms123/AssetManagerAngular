@@ -1,0 +1,111 @@
+.container{
+    margin-top: 5vh;
+    margin-left: 10vh;
+}
+
+#search-hardware{
+    margin-top: 3vh;
+    margin-bottom:3vh;
+    margin-right: 2vw;
+    width:100%;
+    
+}
+#box{
+    border-radius: 10px;
+    width: 85%;
+}
+
+#search{
+    margin-left: 5vh;
+}
+
+#filter{
+    margin-left: 5vh;
+}
+
+#raise{
+    cursor: pointer;
+}
+
+.button4 {
+    /* position: left; */
+    top:50%;
+    -webkit-text-fill-color: rgb(253, 253, 253);
+    background-color: #1F378C;
+    color: white;
+    border:none; 
+    border-radius:10px; 
+    padding:15px;
+    min-height:30px; 
+    min-width: 190px;
+  }
+
+  .btn-3{
+    -webkit-text-fill-color: rgb(253, 253, 253);
+    background-color: #1F378C;
+    color: white;
+    border:none; 
+    border-radius:10px; 
+    padding:15px;
+  }
+
+  .button5 {
+    /* position: left; */
+    top:50%;
+    -webkit-text-fill-color: rgb(253, 253, 253);
+    background-color: #1F378C;
+    color: white;
+    border:none; 
+    border-radius:10px; 
+    padding:15px;
+    min-height:20px; 
+    min-width: 120px;
+    margin-left: 3vw;
+  }
+
+  .buttons{
+    margin-bottom: 3vh;
+    margin-top: 1vh;
+  }
+.buttons-filter{
+    margin-bottom: 2px;
+    margin-top: 10px;
+}
+
+.modal-header{
+    -webkit-text-fill-color: rgb(253, 253, 253);
+    background-color: #1F378C;
+    color: white;
+    margin-bottom: 3vh;
+    padding: 1vh;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Style for select element */
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  color: #555;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+/* Style for select options */
+option {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Style for selected option */
+option:checked {
+  font-weight: bold;
+}
+
+

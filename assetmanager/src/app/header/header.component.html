@@ -1,0 +1,25 @@
+<div class="container" >
+    <input type="text" placeholder="Search Assets..." class="input-box"/>
+   
+    <!-- <select  class="dropdown" name="category" id="category">
+      <option value="Dashboard" routerLink="home/admin/dashboard">Dashboard</option>
+      <option value="Software" routerLink="home/admin/software-list">Software</option>
+      <option value="Hardware" routerLink="home/admin/hardware-list">Hardware</option>
+    </select> -->
+    <select  class="dropdown" name="category" id="category" (change)="navigateTo($event.target)">
+      <option value="Dashboard">Dashboard</option>
+      <option value="Software">Software</option>
+      <option value="Hardware">Hardware</option>
+    </select>
+  
+   <i class="fa-sharp fa-solid fa-bell"></i>
+
+   <img  [src]= "imageUrl">
+   <div class="greet">
+      <div>{{greet}}</div>
+    <div>{{role}} {{userName}}</div>
+     <div>{{dateTime|date:'d MMM y h:mm a'}}</div>
+   </div>
+   
+  
+</div>

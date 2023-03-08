@@ -1,0 +1,59 @@
+.head{
+    height: 50px;
+    background-color: rgb(14, 14, 141);
+    -webkit-text-fill-color: white;
+    padding: 8px;
+    text-decoration-style:double;
+}
+
+.body{
+    text-align: center;
+    padding-top: 200px;
+    
+}
+* {
+    box-sizing: border-box;
+    
+} 
+
+
+
+.button {
+    position: left;
+    top:50%;
+    -webkit-text-fill-color: black;
+    background-color:#b6b6bd;
+    color: #fff;
+    border:none; 
+    border-radius:10px; 
+    padding:15px;
+    min-height:30px; 
+    min-width: 120px;
+  }
+
+  .button1 {
+    position: left;
+    top:50%;
+    -webkit-text-fill-color: rgb(253, 253, 253);
+    background-color:#202071;
+    color: #fff;
+    border:none; 
+    border-radius:10px; 
+    padding:15px;
+    min-height:20px; 
+    min-width: 120px;
+    margin-left: 3vw;
+  }
+
+    p.light {
+        font-weight: lighter;
+      }
+
+      p.thicker {
+        font-weight: 900;
+      }
+
+      textarea{
+        height: 20vh;
+        width: 40vw;
+    }

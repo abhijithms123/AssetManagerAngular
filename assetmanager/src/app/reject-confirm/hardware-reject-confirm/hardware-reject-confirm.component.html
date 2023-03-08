@@ -1,0 +1,12 @@
+<div class="head">
+    <h5>CONFIRM REJECTION OF {{this.assetType.toUpperCase()}} REQUEST</h5>
+    </div>
+    
+    <div class="body" >
+     Do you want to Reject This Request?
+     <Strong>{{this.requestId}}</Strong> <br>
+     <textarea cols="4" rows="5" [(ngModel)] = "reason"></textarea>
+     <br>
+     <button type="button"  class="button" (click)="goToOpen(this.assetType)">CANCEL</button>
+       <button type="button" (click)="confirmReject(this.requestId,this.assetType)"class="button1">OK</button>
+    </div>

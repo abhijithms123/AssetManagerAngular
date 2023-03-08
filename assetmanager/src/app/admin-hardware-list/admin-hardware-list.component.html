@@ -1,0 +1,185 @@
+<ngx-smart-modal
+  #myModal
+  identifier="myModal"
+  [closable]="false"
+  [dismissable]="false"
+  [escapable]="false"
+>
+  <div *ngIf="myModal.hasData()">
+    <pre>{{ myModal.getData().prop1 }}</pre>
+  </div>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Filter Hardwares</h5>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formData" (ngSubmit)="onSubmit(0)">
+      <div class="form">
+        <div class="form-1">
+          <div>
+            <div class="label">MANUFACTURER <span>*</span></div>
+            <select formControlName="manufacturingCompany">
+              <option value="" selected disabled hidden>
+                Select Manufacturer
+              </option>
+              <option
+                value="{{ manufacturingCompany }}"
+                *ngFor="let manufacturingCompany of manufacturingCompany"
+              >
+                {{ manufacturingCompany }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-1">
+          <div>
+            <div class="label">HARDWARE TYPE <span>*</span></div>
+            <select formControlName="hardwareType">
+              <option value="" selected disabled hidden>
+                Select Asset Type
+              </option>
+              <option
+                value="{{ hardwareType }}"
+                *ngFor="let hardwareType of hardwareType"
+              >
+                {{ hardwareType }}
+              </option>
+            </select>
+          </div>
+          <div></div>
+        </div>
+      </div>
+
+      <div class="buttons-filter">
+        <!-- <button class="btn-1" (click)="reset()">CLEAR</button>
+        <button class="btn-2" (click)="navigate()">CANCEL</button> -->
+        <button class=" btn-3" type="submit">FILTER</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      (click)="closeModal('myModal')"
+      class="btn btn-secondary"
+      data-dismiss="modal"
+    >
+      Close
+    </button>
+    <!-- <button type="submit" (click)="addData(myform)" class="btn btn-primary">Send message</button> -->
+  </div>
+</ngx-smart-modal>
+
+
+<div class="outer-layer">
+  <!-- heading section -->
+  <div class="header">
+    <a href="" class="header-link">Asset Management</a>
+    <a href="/dashboard/hardware-list" class="header-link"
+      ><i class="fa-solid fa-chevron-right"></i>Hardware</a
+    >
+  </div>
+
+  <!-- section for search, filter, add, delete -->
+  <div class="control-section">
+    <div class="search-box">
+      <input
+        class="search-input"
+        type="search"
+        placeholder="Search Hardware.."
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="callApi(0)"
+      />
+      <button class="search-btn">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+    <div class="filter-btn" (click)="openPopUp()">
+      <i class="fa-solid fa-filter icon"></i>
+      <!-- <app-filter [list]="filterList" (onFilterChange)="filterHardwares($event)">
+            </app-filter> 
+
+      <button mat-raised-button (click)="openBottomSheet()">Open file</button> -->
+
+      <div class="filter-text">FILTER</div>
+    </div>
+    <div class="add" (click)="clickToAddHardware()">
+      <i class="fa-solid fa-plus icon"></i>
+      <div class="add-text">ADD</div>
+    </div>
+    <div class="delete" (click)="clickDeleteButton()">
+      <i class="fa-solid fa-trash icon"></i>
+      <div class="delete-text">DELETE</div>
+    </div>
+  </div>
+  <div class="buttons"><br>
+    <button type="button" class="button4" (click)="goToOpen()">Open Requests</button>
+    <!-- <button type="button" class="button5" >Cancelled Requests</button> -->
+    <button type="button" class="button5" (click)="goToApprove()">Approved Requests</button>
+    <!-- <button type="button" class="button5">Released Requests</button> -->
+  </div>
+  <!-- table which display all the active assets -->
+  <table class="hardware-table" cellspacing="0" cellpadding="0">
+    <tr>
+      <th>
+        <input
+          type="checkbox"
+          name="checkbox"
+          class="select-all"
+          [(ngModel)]="allChecked"
+          (click)="passFullListForDelete($event)"
+        />
+      </th>
+      <th>HARDWARE TYPE</th>
+      <th>MANUFACTURING COMPANY</th>
+      <th>MODEL NAME</th>
+      <th>YEAR OF MANUFACTURE</th>
+      <th>OWNERSHIP STATUS</th>
+      <th>ASSET NUMBER</th>
+      <th>ACTION</th>
+    </tr>
+    <tr
+      *ngFor="
+        let hardware of data
+          | paginate
+            : {
+                itemsPerPage: 10,
+                currentPage: currentPage,
+                totalItems: count
+              }
+      "
+    >
+      <td>
+        <input
+          type="checkbox"
+          name="checkbox"
+          class="select-all"
+          [checked]="allChecked"
+          (click)="passForDelete(hardware, $event)"
+        />
+      </td>
+      <td>{{ hardware.hardwareType }}</td>
+      <td>{{ hardware.manufacturingCompany }}</td>
+      <td>{{ hardware.modelName }}</td>
+      <td>{{ hardware.yearOfManufacture }}</td>
+      <td>{{ hardware.ownershipStatus }}</td>
+      <td>{{ hardware.assetNumber }}</td>
+      <td>
+        <a (click)="viewParticularHardware(hardware.id)"
+          ><i class="fa-solid fa-eye control-icons"></i
+        ></a>
+        <a (click)="editHardwareAsset(hardware.id)"
+          ><i class="fa-solid fa-pen-to-square edit-btn control-icons"></i
+        ></a>
+      </td>
+    </tr>
+  </table>
+  <div class="pagination">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
+  </div>
+</div>

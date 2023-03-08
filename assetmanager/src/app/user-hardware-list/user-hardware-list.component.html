@@ -1,0 +1,181 @@
+<ngx-smart-modal
+  #myModal
+  identifier="myModal"
+  [closable]="false"
+  [dismissable]="false"
+  [escapable]="false"
+>
+  <div *ngIf="myModal.hasData()">
+    <pre>{{ myModal.getData().prop1 }}</pre>
+  </div>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Filter Hardwares</h5>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formData" (ngSubmit)="onSubmit(0)">
+      <div class="form">
+        <div class="form-1">
+          <div>
+            <div class="label">MANUFACTURER <span>*</span></div>
+            <select formControlName="manufacturingCompany">
+              <option value="" selected disabled hidden>
+                Select Manufacturer
+              </option>
+              <option
+                value="{{ manufacturingCompany }}"
+                *ngFor="let manufacturingCompany of manufacturingCompany"
+              >
+                {{ manufacturingCompany }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-1">
+          <div>
+            <div class="label">HARDWARE TYPE <span>*</span></div>
+            <select formControlName="hardwareType">
+              <option value="" selected disabled hidden>
+                Select Asset Type
+              </option>
+              <option
+                value="{{ hardwareType }}"
+                *ngFor="let hardwareType of hardwareType"
+              >
+                {{ hardwareType }}
+              </option>
+            </select>
+          </div>
+          <div></div>
+        </div>
+      </div>
+
+      <div class="buttons-filter">
+        <!-- <button class="btn-1" (click)="reset()">CLEAR</button>
+        <button class="btn-2" (click)="navigate()">CANCEL</button> -->
+        <button class=" btn-3" type="submit">FILTER</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      (click)="closeModal('myModal')"
+      class="btn btn-secondary"
+      data-dismiss="modal"
+    >
+      Close
+    </button>
+    <!-- <button type="submit" (click)="addData(myform)" class="btn btn-primary">Send message</button> -->
+  </div>
+</ngx-smart-modal>
+
+<div class="container">
+  <div class="input-group col-md-4 mt-5" id="search-hardware">
+    <input
+      class="form-control py-2 border-right-0 border"
+      type="text"
+      id="box"
+      [(ngModel)]="searchResult"
+      placeholder="Search hardware"
+    />
+    <span class="input-group-append">
+      <button
+        class="btn btn-outline-secondary border-left-0 border"
+        type="button"
+        id="search"
+      >
+        <i class="fa fa-search"></i>
+      </button>
+    </span>
+    <button
+      type="button"
+      class="btn btn-outline-secondary border-left-0 border"
+      id="filter"
+      (click)="openPopUp()"
+    >
+      <i class="fa-solid fa-filter"></i>
+    </button>
+    <!-- Button trigger modal
+   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  <i class="fa-solid fa-filter"></i>
+</button> -->
+  </div>
+
+  <div class="buttons">
+    <br />
+    <button type="button" class="button4" (click)="goToOpen()">
+      Open Requests
+    </button>
+    <button type="button" class="button5" (click)="goTocancel()">
+      Cancelled Requests
+    </button>
+    <button type="button" class="button5" (click)="goToapprove()">
+      Approved Requests
+    </button>
+    <button type="button" class="button5" (click)="goTorelease()">
+      Released Requests
+    </button>
+  </div>
+
+  <table class="table table-responsive table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Category</th>
+        <th scope="col">Manufacturer</th>
+        <th scope="col">Model</th>
+        <th scope="col">Configuration</th>
+        <th scope="col">Raise</th>
+      </tr>
+    </thead>
+    <tbody
+      *ngFor="
+        let asset of list
+          | paginate
+            : {
+                itemsPerPage: 5,
+                currentPage: currentPage,
+                totalItems: count
+              }
+      "
+    >
+      <tr *ngIf="asset.status == 'Unallocated'">
+        <td>{{ asset.id }}</td>
+        <td>{{ asset.hardwareType }}</td>
+        <td>{{ asset.manufacturingCompany }}</td>
+        <td>{{ asset.modelName }}</td>
+        <td>{{ asset.configuration }}</td>
+        <td (click)="raise(asset.id, asset.assetType)">
+          <i class="fa-solid fa-hand-fist" id="raise"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls
+    previousLabel="Previous"
+    nextLabel="Next"
+    (pageChange)="onTableDataChange($event)"
+  ></pagination-controls>
+</div>
+
+<!-- Modal
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->

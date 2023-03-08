@@ -1,0 +1,160 @@
+<ngx-smart-modal
+  #myModal
+  identifier="myModal"
+  [closable]="false"
+  [dismissable]="false"
+  [escapable]="false"
+>
+  <div *ngIf="myModal.hasData()">
+    <pre>{{ myModal.getData().prop1 }}</pre>
+  </div>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Filter Softwares</h5>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formData" (ngSubmit)="onSubmit(0)">
+      <div class="form">
+        <div class="form-1">
+          <div>
+            <div class="label">MANUFACTURER <span>*</span></div>
+            <select formControlName="manufacturingCompany">
+              <option value="" selected disabled hidden>
+                Select Manufacturer
+              </option>
+              <option
+                value="{{ manufacturingCompany }}"
+                *ngFor="let manufacturingCompany of manufacturingCompany"
+              >
+                {{ manufacturingCompany }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-1">
+          <div>
+            <div class="label">SOFTWARE CATEGORY <span>*</span></div>
+            <select formControlName="softwareCategory">
+              <option value="" selected disabled hidden>
+                Select Asset Type
+              </option>
+              <option
+                value="{{ softwareCategory}}"
+                *ngFor="let category of softwareCategory"
+              >
+                {{ category }}
+              </option>
+            </select>
+          </div>
+          <div></div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <!-- <button class="btn-1" (click)="reset()">CLEAR</button>
+        <button class="btn-2" (click)="navigate()">CANCEL</button> -->
+        <button class="btn-3" type="submit">FILTER</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      (click)="closeModal('myModal')"
+      class="btn btn-secondary"
+      data-dismiss="modal"
+    >
+      Close
+    </button>
+    <!-- <button type="submit" (click)="addData(myform)" class="btn btn-primary">Send message</button> -->
+  </div>
+</ngx-smart-modal>
+
+
+<div class="outer-layer">
+
+    <!-- heading section -->
+    <div class="header">
+        <a href="" class="header-link">Asset Management</a>
+        <a href="" class="header-link"><i class="fa-solid fa-chevron-right"></i>Software</a>
+    </div>
+
+    <!-- section for search, filter, add, delete -->
+    <div class="control-section">
+        <div class="search-box">
+            <input
+                class="search-input"
+                type="search"
+                placeholder="Search Software.."
+                [(ngModel)]="searchTerm"
+                (ngModelChange)="callApi(0)"
+            />
+            <button class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <div class="filter" (click)="openPopUp()">
+            <i class="fa-solid fa-filter icon"></i>
+            <div class="filter-text">FILTER</div>
+        </div>
+        <div class="add" (click)="clickToAddSoftware()"  >
+            <i class="fa-solid fa-plus icon"></i>
+            <div class="add-text">ADD</div>
+        </div>
+        <div class="delete" (click)="clickDeleteButton()">
+            <i class="fa-solid fa-trash icon"></i>
+            <div class="delete-text">DELETE</div>
+        </div>
+    </div>
+
+    <div class="buttons"><br>
+        <button type="button" class="button4" (click)="goToOpen()">Open Requests</button>
+        <!-- <button type="button" class="button5" >Cancelled Requests</button> -->
+        <button type="button" class="button5" (click)="goToApprove()">Approved Requests</button>
+        <!-- <button type="button" class="button5">Released Requests</button> -->
+      </div>
+
+    <!-- table which display all the active assets -->
+    <table class="software-table" cellspacing="0" cellpadding="0">      
+        <tr>
+            <th><input type="checkbox" name="checkbox" class="select-all" [(ngModel)]="allChecked" (change)="passFullListForDelete($event)" /></th>
+            <th>SOFTWARE NAME</th>
+            <th>MANUFACTURE</th>
+            <th>CATEGORY</th>
+            <th>LICENSE TYPE</th>
+            <th>VERSION</th>
+            <th>ASSET NUMBER</th>
+            <th>PURCHASED</th>
+            <th>INSTALLED</th>
+            <th>ACTION </th>
+        </tr>
+        <tr *ngFor="let software of data
+                    | paginate
+                    : {
+                        itemsPerPage: 10,
+                        currentPage: currentPage,
+                        totalItems: count
+                        }">
+            <td><input type="checkbox" name="checkbox" class="select-all" [checked]="allChecked" (click)="passForDelete(software, $event)"></td>
+            <td>{{software.softwareName}}</td>
+            <td>{{software.manufacturingCompany}}</td>
+            <td>{{software.softwareCategory}}</td>
+            <td>{{software.licenseType}}</td>
+            <td>{{software.version}}</td>
+            <td>{{software.assetNumber}}</td>
+            <td>{{software.purchased}}</td>
+            <td>{{software.installed}}</td>
+            <td><a (click)="viewParticularSoftware(software.id)"><i class="fa-solid fa-eye control-icons"></i></a> 
+                <a (click)="editSoftwareAsset(software.id)"><i class="fa-solid fa-pen-to-square edit-btn control-icons"></i></a>
+            </td>
+        </tr>
+    </table>
+    <div class="pagination">
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
+      </div>
+</div>

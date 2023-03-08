@@ -1,0 +1,67 @@
+<div class="outer">
+
+    <!-- heading section -->
+    <div class="header">
+        <a href="" class="header-link">Asset Management</a>
+        <a href="/dashboard/hardware-list" class="header-link"><i class="fa-solid fa-chevron-right"></i>Hardware</a>
+        <a href="" class="header-link"><i class="fa-solid fa-chevron-right"></i>edit</a>
+    </div>
+
+    <!-- hardware edit form -->
+    <form [formGroup] = "editHardware" (ngSubmit)="onSubmit()" id="editForm">
+
+        <div class="form_container">
+
+            <div class="form_sub_container">
+                
+                <div class="input_container">
+                    <label class="input_lable">EXPRESS SERVICE CODE</label>
+                    <input type="text" value="" class="form_input" formControlName = "expressServiceCode" >
+                </div>
+                
+                <div class="input_container">
+                    <label class="input_lable">BATCH NUMBER</label>
+                    <input type="text" class="form_input" formControlName = "batchNumber">
+                </div>
+                
+            </div>
+            <div class="form_sub_container">
+                
+                <div class="input_container">
+                    <label class="input_lable">OWNERSHIP STATUS</label>
+                    <select class="form_input" formControlName="ownershipStatus">
+                        <option value="Owned">Owned</option>
+                        <option value="Not-Owned">Not-Owned</option>
+                    </select>
+                </div>
+                
+                <div class="input_container">
+                    <label class="input_lable">ASSET NUMBER</label>
+                    <input type="text" class="form_input" formControlName = "assetNumber">
+                </div>
+    
+            </div>
+            <div class="form_sub_container">
+                
+                <div class="input_container">
+                    <label class="input_lable">CODE</label>
+                    <input type="text" class="form_input" formControlName = "code">
+                </div>
+                
+                <div class="input_container">
+                    <label class="input_lable">CONFIGURATION</label>
+                    <input type="text" class="form_input" formControlName = "configuration">
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="submition">
+            <button type="button" class="submit-button" (click)="clearFields()">CLEAR</button>
+            <button type="button" class="submit-button" (click)="goBack()">CANCEL</button>
+            <button type="submit" class="submit-button" form="editForm" [disabled]="editHardware.invalid">SUBMIT</button>
+        </div>
+    
+    </form>
+
+</div>

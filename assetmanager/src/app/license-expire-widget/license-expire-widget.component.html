@@ -1,0 +1,20 @@
+<div class="container-fluid" *ngFor="let data of licenseExpireData">
+    <div class="row app-data mt-4 h-100vh" *ngIf="data" (click)="doSomething(data.id)">
+      <div class="row px-3 softwareName">
+        {{ data.softwareName }}
+      </div>
+      <div class="expRenew">
+        <div class="col date mt-2 ">
+          <small>Expire Date</small>
+          <div class="col">
+            {{ data.licenseExpiryDate | date:'dd LLL y' }}
+          </div>
+        </div>
+        <div class="col expiresIn mt-2">
+          <small>Renew Due In</small>
+          <div class="col day ">{{ data.expiresIn }} Days</div>
+        </div>
+  
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,88 @@
+<div class="outer-layer">
+    <!-- heading section -->
+    <div class="header">
+        <a href="" class="header-link">Asset Management</a>
+        <a href="" class="header-link"><i class="fa-solid fa-chevron-right"></i>Software</a>
+        <a href="" class="header-link"><i class="fa-solid fa-chevron-right"></i>Add</a>
+    </div>
+    
+    <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+        <div class="form">
+        <div class="form-1">
+            <div>
+            <div class="label">ASSET NUMBER <span>*</span></div>
+            <input type="text" formControlName="assetNumber"/>
+            </div>
+            <div>
+                <div class="label">LICENSE COST <span>*</span></div>
+                <input type="number" formControlName="licenseCost"/>
+            </div>
+            <div>
+            <div class="label">MANUFACTURER<span>*</span></div>
+            <select formControlName="manufacturingCompany">
+                <option value="" selected disabled hidden>Select Manufacturer</option>
+                <option value="{{manufacturingCompany}}" *ngFor="let manufacturingCompany of manufacturingCompany">
+                    {{manufacturingCompany}}
+                </option>
+            </select>
+            </div>
+            <div>
+            <div class="label">SOFTWARE CATEGORY <span>*</span></div>
+            <select formControlName="softwareCategory">
+                <option value="" selected disabled hidden>Select Software Category</option>
+                <option value="{{softwareCategory}}" *ngFor="let softwareCategory of softwareCategory">
+                    {{softwareCategory}}
+                </option>
+            </select>
+            </div>
+        </div>
+        <div class="form-1">
+            <div>
+            <div class="label">VERSION <span>*</span></div>
+            <input type="text" formControlName="version"/>
+            </div>
+            <div>
+            <div class="label">SUB VERSION <span>*</span></div>
+            <input type="text" formControlName="subVersion"/>
+            </div>
+            <div>
+            <div class="label">LICENSE YEAR <span>*</span></div>
+            <input type="number" formControlName="licenseYear"/>
+            </div>
+            <div>
+            <div class="label">SOFTWARE NAME <span>*</span></div>
+            <input type="text" formControlName="softwareName"/>
+            </div>
+        </div>
+        <div class="form-1">
+            <div>
+            <div class="label">TOTAL PURCHASED LICENSE <span>*</span></div>
+            <input type="number" formControlName="purchased"/>
+            </div>
+            <div>
+            <div class="label">LICENSE EXPIRY DATE <span>*</span></div>
+            <input type="date" formControlName="licenseExpiryDate"/>
+            </div>
+            <div>
+            <div class="label">LICENSE TYPE <span>*</span></div>
+            <select formControlName="licenseType">
+                <option value="" selected disabled hidden>Select License type</option>
+                <option value="{{license}}" *ngFor="let license of licenseType">
+                    {{license}}
+                </option>
+            </select>
+            </div>
+            <div>
+            
+            </div>
+        </div>
+        </div>
+    
+        <div class="buttons">
+        <button class="btn-1" (click)="reset()" type="button">CLEAR</button>
+        <button class="btn-2" (click)="navigate()" type="button">CANCEL</button>
+        <button class="btn-3" type="submit">SAVE</button>
+        </div>
+    </form>
+    </div>
+    

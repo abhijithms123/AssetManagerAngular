@@ -1,0 +1,70 @@
+<div>
+    <div class="control-section">
+      <div class="search-box">
+        <form>
+          <input class="search-input" type="text" placeholder="Search Asset..." />
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+      <div class="dropdown">
+        <button class="control-btn dropbtn btnfilter">
+          <span class="pl-8">
+            <i class="fa-solid fa-filter icon"></i>
+            <div class="filter-text">FILTER</div>
+          </span>
+        </button>
+      </div>
+      <div>
+        <button class="control-btn">
+          <i class="fa-solid fa-plus icon"></i>
+          <div class="add-text">ADD</div>
+        </button>
+      </div>
+      <div>
+        <button class="control-btn">
+          <i class="fa-solid fa-trash icon"></i>
+          <div class="delete-text">DELETE</div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <table class="table table-striped hardware-table">
+      <thead>
+        <th class="table-checkbox">
+          <input type="checkbox" class="select-all" />
+        </th>
+        <th class="table-title">asset number</th>
+        <th class="table-title">type</th>
+        <th class="table-title">manufacturer</th>
+        <th class="table-title">category</th>
+        <th class="table-title">license type</th>
+        <th class="table-title">software name</th>
+        <th class="table-title">license count</th>
+        <th class="table-title">action</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of assetData">
+          <td><input type="checkbox" class="select-all" /></td>
+          <td>{{ data.assetNumber }}</td>
+          <td>{{ data.assetType }}</td>
+          <td>{{ data.manufacturingCompany }}</td>
+          <td>{{ data.softwareCategory }}</td>
+          <td>{{ data.licenseType }}</td>
+          <td>{{ data.softwareName }}</td>
+          <td>{{ data.purchased }}</td>
+          <td>
+            <button class="action-btn">
+              <i class="fa-solid fa-eye action"></i>
+            </button>
+            <button class="action-btn">
+              <i class="fa-solid fa-pen-to-square action"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <br /><br />
+    </table>
+  </div>

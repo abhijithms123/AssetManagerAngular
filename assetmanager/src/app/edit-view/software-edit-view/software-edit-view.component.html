@@ -1,0 +1,119 @@
+<div class="outer">
+
+    <!-- heading section -->
+    <div class="header">
+        <a href="" class="header-link">Asset Management</a>
+        <a routerLink="/dashboard/software-list" class="header-link"><i class="fa-solid fa-chevron-right"></i>Software</a>
+        <a href="" class="header-link"><i class="fa-solid fa-chevron-right"></i>view</a>
+    </div>
+
+    <!-- software view section -->
+        <div class="form_container" >
+
+            <div class="form_sub_container">
+                
+                <div class="input_container">
+                    <label class="input_lable">ASSET TYPE</label>
+                    <p class="output_text">{{data[0].assetType}}</p>
+                </div>
+
+                <div class="input_container">
+                    <label class="input_lable">SUB VERSION</label>
+                    <p class="output_text">{{data[0].subVersion}}</p>
+                </div>
+                
+                <div class="input_container">
+                    <label class="input_lable">LICENCE YEAR</label>
+                    <p class="output_text">{{data[0].licenseYear}}</p>
+                </div>
+
+                <div class="input_container">
+                    <label class="input_lable">PURCHACED</label>
+                    <p class="output_text">{{data[0].purchased}}</p>
+                </div>
+
+                <div class="input_container">
+                    <label class="input_lable">LICENCE EXPIRY DATE</label>
+                    <p class="output_text">{{data[0].licenseExpiryDate}}</p>
+                </div>
+
+                <div class="input_container">
+                    <label class="input_lable">ENTERED BY</label>
+                    <p class="output_text">{{data[0].enteredBy}}</p>
+                </div>
+
+                
+                
+                
+            </div>
+            <div class="form_sub_container">
+                
+                <div class="input_container">
+                    <label class="input_lable">MANUFACTURING COMPANY</label>
+                    <p class="output_text">{{data[0].manufacturingCompany}}</p>
+                </div>
+                      
+                <div class="input_container">
+                    <label class="input_lable">SOFTWARE CATEGORY</label>
+                    <p class="output_text">{{data[0].softwareCategory}}</p>
+                </div>
+
+                <div class="input_container">
+                    <label class="input_lable">LICENCE TYPE</label>
+                    <p class="output_text">{{data[0].licenseType}}</p>
+                </div>
+
+                <div class="input_container">
+                    <label class="input_lable">INSTALLED</label>
+                    <p class="output_text">{{data[0].installed}}</p>
+                </div>
+
+                <div class="input_container">
+                    <label class="input_lable">LICENCE COST</label>
+                    <p class="output_text">{{data[0].licenseCost}}</p>
+                </div>
+
+                <div></div>
+                
+            </div>
+            <div class="form_sub_container">
+                
+                <div class="input_container">
+                    <label class="input_lable">ASSET NUMBER</label>
+                    <p class="output_text">{{data[0].assetNumber}}</p>
+                </div>
+                
+                <div class="input_container">
+                    <label class="input_lable">VERSION</label>
+                    <p class="output_text">{{data[0].version}}</p>
+                </div>
+
+                <div class="input_container">
+                    <label class="input_lable">SOFTWARE NAME</label>
+                    <p class="output_text">{{data[0].softwareName}}</p>
+                </div>
+    
+                
+                <div class="input_container">
+                    <label class="input_lable">ALLOCATION PENDING</label>
+                    <p class="output_text">{{allocationPending}}</p>
+                </div>
+                
+                <div class="input_container">
+                    <label class="input_lable">STATUS</label>
+                    <p class="output_text">{{data[0].status}}</p>
+                </div>
+
+                <div></div>
+
+            </div>
+            
+        </div>
+
+        <div class="submition">
+            <input type="submit" value="BACK" class="submit-button" (click)="goBack()">
+        </div>
+        
+
+</div>
+

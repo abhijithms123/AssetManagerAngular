@@ -1,0 +1,18 @@
+<form [formGroup]="loginForm">
+    <div class="container">
+      <img src="../../assets/bytestrone-logo.png" alt="bytestrone logo" />
+      <div class="user-name">
+        <label for="uname" class="required"><b>USERNAME</b></label>
+        <input type="text" formControlName="username" />
+      </div>
+  
+      <div class="password">
+        <label for="psw" class="required"><b>PASSWORD</b></label>
+        <input type="password" formControlName="password" />
+      </div>
+  
+      <button type="submit" (click)="loginUser()">Login</button>
+      <p class="copyright">copyright &#169; 2022 Bytestrone.</p>
+      <p id="allRights">All rights reserved.</p>
+    </div>
+  </form>

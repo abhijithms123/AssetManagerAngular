@@ -1,0 +1,47 @@
+<div class="container">
+    <h5>Open Requests</h5>
+    <table class="table table-responsive table-striped">
+        <thead>
+          <tr>
+            <th scope="col">requestId</th>
+            <th scope="col">category</th>
+            <th scope="col">model</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Requested By</th>
+            <th scope="col">requested Date</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let request of list  | paginate
+        : {
+            itemsPerPage: 5,
+            currentPage: currentPage,
+            totalItems: count
+          }">
+          <tr>
+            <td>{{request.requestId}}</td>
+            <td>{{request.hardwareType}}</td>
+            <td>{{request.modelName}}</td>
+            <td>{{request.manufacturingCompany}}</td>
+            <td>{{request.requestedBy}}</td>
+            <td>{{request.requestedDate}}</td>
+            <td> <button
+                class="action-btn1"
+                (click)="approve(request.requestId,request.requestedBy,request.assetId,'Hardware')"
+              >
+                <i class="fa-sharp fa-solid fa-thumbs-up"></i>
+              </button>
+              <button
+                class="action-btn2"
+                (click)="rejectOpenRequest(request.requestId)"
+              >
+                <i class="fa-sharp fa-solid fa-thumbs-down"></i>
+              </button></td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls previousLabel="Previous" nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"></pagination-controls>
+    
+</div>
+

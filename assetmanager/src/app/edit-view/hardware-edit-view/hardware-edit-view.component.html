@@ -1,0 +1,107 @@
+<div class="outer">
+
+    <!-- heading section -->
+    <div class="header">
+        <a href="" class="header-link">Asset Management</a>
+        <a routerLink="/dashboard/hardware-list" class="header-link"><i class="fa-solid fa-chevron-right"></i>Hardware</a>
+        <a href="" class="header-link"><i class="fa-solid fa-chevron-right"></i>view</a>
+    </div>
+
+    <!-- software view section -->
+        <div class="form_container" >
+
+            <div class="form_sub_container">
+                
+                <div class="input_container">
+                    <label class="input_lable">HARDWARE TYPE</label>
+                    <p class="output_text">{{data[0].hardwareType}}</p>
+                </div>
+                
+                <div class="input_container">
+                    <label class="input_lable">SERIAL NUMBER</label>
+                    <p class="output_text">{{data[0].serialNumber}}</p>
+                </div>
+
+                <div class="input_container">
+                    <label class="input_lable">YEAR OF MANUFACTURE</label>
+                    <p class="output_text">{{data[0].yearOfManufacture}}</p>
+                </div>
+
+                <div class="input_container">
+                    <label class="input_lable">OWNEDSHIP STATUS</label>
+                    <p class="output_text">{{data[0].ownershipStatus}}</p>
+                </div>
+
+                <div class="input_container">
+                    <label class="input_lable">STATUS</label>
+                    <p class="output_text">{{data[0].status}}</p>
+                </div>
+
+                
+                
+            </div>
+            <div class="form_sub_container">
+                
+                <div class="input_container">
+                    <label class="input_lable">ASSET NUMBER</label>
+                    <p class="output_text">{{data[0].assetNumber}}</p>
+                </div>
+
+                <div class="input_container">
+                    <label class="input_lable">MODEL NUMBER</label>
+                    <p class="output_text">{{data[0].modelNumber}}</p>
+                </div>
+                
+                <div class="input_container">
+                    <label class="input_lable">EXPRESS SERVICE CODE</label>
+                    <p class="output_text">{{data[0].expressServiceCode}}</p>
+                </div>
+                
+                <div class="input_container">
+                    <label class="input_lable">CODE</label>
+                    <p class="output_text">{{data[0].code}}</p>
+                </div>
+                
+                <div class="input_container">
+                    <label class="input_lable">ENTERED BY</label>
+                    <p class="output_text">{{data[0].enterBy}}</p>
+                </div>
+                
+                <div></div>
+
+            </div>
+            <div class="form_sub_container">
+                
+                <div class="input_container">
+                    <label class="input_lable">MANUFACTURING COMPANY</label>
+                    <p class="output_text">{{data[0].manufacturingCompany}}</p>
+                </div>
+    
+                <div class="input_container">
+                    <label class="input_lable">MODEL NAME</label>
+                    <p class="output_text">{{data[0].modelName}}</p>
+                </div>
+
+                <div class="input_container">
+                    <label class="input_lable">BATCH NUMBER</label>
+                    <p class="output_text">{{data[0].batchNumber}}</p>
+                </div>
+                
+                <div class="input_container">
+                    <label class="input_lable">CONFIGURATION</label>
+                    <p class="output_text">{{data[0].configuration}}</p>
+                </div>
+
+                <div></div>
+                
+            </div>
+
+        </div>
+
+        <div class="submition">
+            <input type="submit" value="BACK" class="submit-button" (click)="goBack()">
+        </div>
+        
+
+</div>
+

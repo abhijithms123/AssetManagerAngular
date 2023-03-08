@@ -1,0 +1,106 @@
+/* header */
+.header{
+    padding: 2vh 0vw 3vh 2vw;
+    border-bottom: 0.5px solid #6c6c6c;
+}
+.header-link{
+    font-size: 2em;
+    font-weight: 800;
+    text-decoration: none;
+    margin-right: 1vw;
+    color: #1F378C;
+}
+
+.form{
+    height: 50vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 3vh 3vw;
+}
+
+.form-1{
+    height: 50vh;
+    display: grid;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+
+}
+
+.form-1 .label{
+    font-size: 0.9vw;
+    color: #6c6c6c;
+}
+
+.form-1 .label span{
+    color: red;
+}
+
+.form-1 input{
+    margin: 0vh 0 3vh 0;
+    padding: 0 10px 0 10px;
+    height: 4vh;
+    width: 18vw;
+    border-radius: 6px;
+    border: 1px solid black;
+}
+
+.form-1 input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+
+.form-1 input.ng-valid.ng-touched{
+    border: 2px solid green;
+}
+.form-1 select.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+
+.form-1 select.ng-valid.ng-touched{
+    border: 2px solid green;
+}
+
+.form-1 select{
+    margin: 0vh 0 3vh 0;
+    padding: 0 10px 0 10px;
+    height: 4vh;
+    width: 18vw;
+    border-radius: 6px;
+    border: 1px solid black;
+}
+
+
+
+.buttons{
+    display: flex;
+    /* width: 100vw; */
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 4vw;
+}
+
+.btn-1,.btn-2{
+    padding: 9px 20px 9px 20px;
+    font-size: 1vw;
+    font-weight: 600;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    background-color: #D9D9D6;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    margin: 0vw 0.5vw 0vw 0.5vw ;
+}
+.btn-3{
+    padding: 9px 20px 9px 20px;
+    font-size: 1vw;
+    font-weight: 600;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    background-color: #1F378C;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    margin: 0vw 0.5vw 0vw 0.5vw ;
+}
+

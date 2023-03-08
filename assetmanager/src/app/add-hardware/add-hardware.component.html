@@ -1,0 +1,111 @@
+<div class="outer-layer">
+    <!-- heading section -->
+    <div class="header">
+        <a href="" class="header-link">Asset Management</a>
+        <a href="/dashboard/hardware-list" class="header-link"><i class="fa-solid fa-chevron-right"></i>Hardware</a>
+        <a href="" class="header-link"><i class="fa-solid fa-chevron-right"></i>Add</a>
+    </div>
+
+    <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+        <div class="form">
+            <div class="form-1">
+                <div>
+                    <div class="label">ASSET NUMBER <span>*</span></div>
+                    <input type="text" formControlName="assetNumber" />
+                </div>
+
+                <div>
+                    <div class="label">serialNumber <span>*</span></div>
+                    <input type="text" formControlName="serialNumber" />
+                </div>
+
+                <div>
+                    <div class="label">expressServiceCode <span>*</span></div>
+                    <input type="text" formControlName="expressServiceCode" />
+                </div>
+
+                <div>
+                    <div class="label">ownershipStatus<span>*</span></div>
+                    <select formControlName="ownershipStatus">
+                        <option value="" selected disabled hidden>Select ownership type</option>
+                        <option value="{{ownershipStatus}}" *ngFor="let ownershipStatus of ownershipStatus">
+                            {{ownershipStatus}}
+                        </option>
+                    </select>
+                </div>
+
+
+
+            </div>
+
+
+
+            <div class="form-1">
+
+                <div>
+                    <div class="label">MANUFACTURER <span>*</span></div>
+                    <select formControlName="manufacturingCompany">
+                        <option value="" selected disabled hidden>Select Manufacturer</option>
+                        <option value="{{manufacturingCompany}}" *ngFor="let manufacturingCompany of manufacturingCompany">
+                            {{manufacturingCompany}}
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="label">Model Name <span>*</span></div>
+                    <input type="text" formControlName="modelName" />
+                </div>
+
+                <div>
+                    <div class="label">batchNumber<span>*</span></div>
+                    <input type="text" formControlName="batchNumber" />
+                </div>
+
+                <div>
+                    <div class="label">code<span>*</span></div>
+                    <input type="text" formControlName="code" />
+                </div>
+
+
+            </div>
+
+            <div class="form-1">
+                <div>
+                    <div class="label">HARDWARE TYPE <span>*</span></div>
+                    <select formControlName="hardwareType">
+                        <option value="" selected disabled hidden>Select Asset Type</option>
+                        <option value="{{hardwareType}}" *ngFor="let hardwareType of hardwareType">
+                            {{hardwareType}}
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="label">Model Number <span>*</span></div>
+                    <input type="text" formControlName="modelNumber" />
+                </div>
+
+                <div>
+                    <div class="label">yearOfManufacture <span>*</span></div>
+                    <input type="number" formControlName="yearOfManufacture" />
+                </div>
+
+                <div>
+                    <div class="label">configuration<span>*</span></div>
+                    <input type="text" formControlName="configuration" />
+                </div>
+
+
+
+                <div></div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn-1" (click)="reset()">CLEAR</button>
+            <button class="btn-2" (click)="navigate()">CANCEL</button>
+            <button class="btn-3" type="submit">SAVE</button>
+        </div>
+    </form>
+</div>

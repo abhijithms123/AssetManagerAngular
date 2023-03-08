@@ -1,0 +1,52 @@
+<div class="main" *ngIf="assetType == 'Hardware'">
+  <div class="head">
+    <h5>CONFIRM HARDWARE REQUEST</h5>
+  </div>
+
+  <div class="body" *ngIf="asset && this.confirm==false">
+    <div class="p1">
+      <p class="light">Please confirm the requisition of <br /></p>
+      <p class="thicker">{{ asset.hardwareType }}</p>
+      against your name<br />
+      The selected version is
+      <p class="thicker">{{ asset.manufacturingCompany }}</p>
+    </div>
+    <br />
+    <button type="button" class="button" (click)="hardCancel()">CANCEL</button>
+    <button type="button" (click)="ok()" class="button1">OK</button>
+  </div>
+
+  <div class="body" *ngIf="this.confirm==true" >
+    Request with request ID {{this.reqId}} has been generated<br>
+       You will receive an email once the <br>
+       the request has been approved.<br>
+    
+      <button type="button"(click)=" confirmopenrequest()" class="button1">OK</button>
+   </div>
+</div>
+
+<div class="main" *ngIf="assetType == 'Software'">
+  <div class="head">
+    <h5>CONFIRM SOFTWARE REQUEST</h5>
+  </div>
+
+  <div class="body" *ngIf="softwareAsset && this.confirm==false">
+    <div class="p1">
+      <p class="light">Please confirm the requisition of <br /></p>
+      <p class="thicker">{{ softwareAsset.softwareName }}</p>
+      against your name<br />
+      The selected version is
+      <p class="thicker">{{ softwareAsset.version }}</p>
+    </div>
+    <br />
+    <button type="button" class="button" (click)="softCancel()">CANCEL</button>
+    <button type="button" (click)="softwareOk()" class="button1">OK</button>
+  </div>
+  <div class="body" *ngIf="this.confirm==true">
+    Request with request ID {{this.reqId}} has been generated<br>
+       You will receive an email once the <br>
+       the request has been approved.<br>
+    
+      <button type="button"(click)=" confirmopenrequest()" class="button1">OK</button>
+   </div>
+</div>

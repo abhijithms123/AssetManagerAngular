@@ -1,0 +1,12 @@
+<div class="col" >
+    <canvas class="software-graph"
+      baseChart
+      [data]="chartData"
+      [labels]="doughnutChartLabels"
+      [type]="doughnutChartType"
+      [options]="options"
+      (chartHover)="(chartHovered)"
+      [plugins]="barChartPlugins"
+      (chartClick)="chartClicked($event)"
+    ></canvas>
+  </div>

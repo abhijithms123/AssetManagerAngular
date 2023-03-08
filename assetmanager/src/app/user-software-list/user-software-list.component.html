@@ -1,0 +1,124 @@
+<ngx-smart-modal
+  #myModal
+  identifier="myModal"
+  [closable]="false"
+  [dismissable]="false"
+  [escapable]="false"
+>
+  <div *ngIf="myModal.hasData()">
+    <pre>{{ myModal.getData().prop1 }}</pre>
+  </div>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Filter Softwares</h5>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formData" (ngSubmit)="onSubmit(0)">
+      <div class="form">
+        <div class="form-1">
+          <div>
+            <div class="label">MANUFACTURER <span>*</span></div>
+            <select formControlName="manufacturingCompany">
+              <option value="" selected disabled hidden>
+                Select Manufacturer
+              </option>
+              <option
+                value="{{ manufacturingCompany }}"
+                *ngFor="let manufacturingCompany of manufacturingCompany"
+              >
+                {{ manufacturingCompany }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-1">
+          <div>
+            <div class="label">SOFTWARE CATEGORY <span>*</span></div>
+            <select formControlName="softwareCategory">
+              <option value="" selected disabled hidden>
+                Select Asset Type
+              </option>
+              <option
+                value="{{ softwareCategory}}"
+                *ngFor="let category of softwareCategory"
+              >
+                {{ category }}
+              </option>
+            </select>
+          </div>
+          <div></div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <!-- <button class="btn-1" (click)="reset()">CLEAR</button>
+        <button class="btn-2" (click)="navigate()">CANCEL</button> -->
+        <button class="btn-3" type="submit">FILTER</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      (click)="closeModal('myModal')"
+      class="btn btn-secondary"
+      data-dismiss="modal"
+    >
+      Close
+    </button>
+    <!-- <button type="submit" (click)="addData(myform)" class="btn btn-primary">Send message</button> -->
+  </div>
+</ngx-smart-modal>
+
+<div class="container">
+    <div class="input-group col-md-4 mt-5" id="search-hardware">
+        <input class="form-control py-2 border-right-0 border" type="text" id="box" [(ngModel)]="searchResult" placeholder="Search software">
+        <span class="input-group-append">
+          <button class="btn btn-outline-secondary border-left-0 border" type="button" id="search">
+                <i class="fa fa-search"></i>
+          </button>
+        </span>
+        <button type="button" class="btn btn-outline-secondary border-left-0 border" id="filter" (click)="openPopUp()"><i class="fa-solid fa-filter"></i></button>
+    </div>
+
+    <div class="buttons"><br>
+        <button type="button" class="button4" (click)="goToOpen()">Open Requests</button>
+        <button type="button" class="button5" (click)="goToCancel()">Cancelled Requests</button>
+        <button type="button" class="button5" (click)="goToApprove()">Approved Requests</button>
+        <button type="button" class="button5" (click)="goToRelease()">Released Requests</button>
+      </div>
+
+    <table class="table table-responsive table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Category</th>
+          <th scope="col">Manufacturer</th>
+          <th scope="col">Version</th>
+          <th scope="col">Subversion</th>
+          <th scope="col"> Licence type </th>
+          <th scope="col">Raise</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let asset of list  | paginate
+      : {
+          itemsPerPage: 5,
+          currentPage: currentPage,
+          totalItems: count
+        }">
+        <tr>
+          <td>{{asset.id}}</td>
+          <td>{{asset.softwareName}}</td>
+          <td>{{asset.softwareCategory}}</td>
+          <td>{{asset.manufacturingCompany}}</td>
+          <td>{{asset.version}}</td>
+          <td>{{asset.subVersion}}</td>
+          <td>{{asset.licenseType}}</td>
+          <td (click)="raise(asset.id,asset.assetType)"><i class="fa-solid fa-hand-fist" id="raise"></i></td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls previousLabel="Previous" nextLabel="Next"
+    (pageChange)="onTableDataChange($event)"></pagination-controls>
+  </div>

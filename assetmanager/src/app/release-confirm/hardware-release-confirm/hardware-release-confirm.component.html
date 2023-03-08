@@ -1,0 +1,19 @@
+<div class="head">
+    <h5>CONFIRM {{this.type.toUpperCase()}} RELEASE REQUEST</h5>
+    </div>
+    
+    <div class="body" *ngIf="this.confirm==false">
+     Please confirm the release of 
+     request with request Id 
+     <Strong>{{this.requestId}}</Strong> <br>
+     <textarea cols="4" rows="5" [(ngModel)] = "reason"></textarea>
+     <br>
+     <button type="button"  class="button">CANCEL</button>
+       <button type="button" (click)="confirmRelease(this.requestId,this.type)"class="button1">OK</button>
+    </div>
+    
+    <div class="body" *ngIf="this.confirm==true">
+      Request with request ID {{requestId}} has been released<br>
+      
+        <button type="button"(click)=" openReleased(this.type)" class="button1">OK</button>
+     </div>

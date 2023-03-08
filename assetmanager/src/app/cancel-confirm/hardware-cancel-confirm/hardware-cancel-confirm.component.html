@@ -1,0 +1,19 @@
+<div class="head">
+    <h5>CONFIRM {{this.type.toUpperCase()}} CANCELLATION REQUEST</h5>
+    </div>
+    
+    <div class="body" *ngIf="this.confirm == false">
+     Please confirm the cancellation of 
+     request with request Id 
+     <Strong>{{this.requestId}}</Strong> <br>
+     <textarea cols="4" rows="5" [(ngModel)] = "reason"></textarea>
+     <br>
+       <button type="button" (click)="goToOpenReq(this.type)" class="button">CANCEL</button>
+       <button type="button" (click)="confirmCancel(this.requestId,this.type)"class="button1">OK</button>
+    </div>
+
+    <div class="body" *ngIf="this.confirm==true">
+      Request with request ID {{this.requestId}} has been cancelled<br>
+      
+        <button type="button"(click)=" openCancelled(this.type)" class="button1">OK</button>
+     </div>

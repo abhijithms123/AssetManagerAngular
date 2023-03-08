@@ -1,0 +1,22 @@
+.container{
+    margin-top: 10vh;
+    margin-left: 10vh;
+}
+h5{
+    color: #1F378C;;
+}
+
+.action-btn1 {
+    margin-left: 10%;
+    border: 0;
+    background-color: transparent;
+  }
+  .action-btn2 {
+    margin-left: 10%;
+    border: 0;
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    background-color: transparent;
+  }

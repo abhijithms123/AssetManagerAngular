@@ -1,0 +1,34 @@
+<div class="container">
+    <h5>Approved Software Requests</h5>
+    <table class="table table-responsive table-striped">
+        <thead>
+          <tr>
+            <th scope="col">requestId</th>
+            <th scope="col">Software Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Requsted By</th>
+            <th scope="col">requested Date</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let request of list  | paginate
+        : {
+            itemsPerPage: 5,
+            currentPage: currentPage,
+            totalItems: count
+          }">
+          <tr>
+            <td>{{request.requestId}}</td>
+            <td>{{request.softwareName}}</td>
+            <td>{{request.softwareCategory}}</td>
+            <td>{{request.manufacturingCompany}}</td>
+            <td>{{request.requestedBy}}</td>
+            <td>{{request.requestedDate}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls previousLabel="Previous" nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"></pagination-controls>
+    
+</div>
+

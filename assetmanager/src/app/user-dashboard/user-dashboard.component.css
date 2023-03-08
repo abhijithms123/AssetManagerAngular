@@ -1,0 +1,72 @@
+.content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.hard-header {
+    margin-left: 2vw;
+    margin-top: 2vh;
+    color: #1F378C;
+}
+
+#hw {
+    margin-top: 2vh;
+}
+
+#sw {
+    margin-top: 2vh;
+}
+
+.request {
+    margin-left: 2vw;
+    color: #1F378C;
+}
+
+.card {
+    width: 12vw;
+    height: auto;
+    display: flex;
+}
+
+.hardware-req {
+    margin-top: 2vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+.software-req {
+    margin-top: 2vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card-img-top {
+    margin-left: 3vw;
+    margin-top: 1vh;
+    height: 10vh;
+    width: 6vw;
+}
+
+.assets {
+    margin-top: 2vh;
+    margin-left: 2vw;
+    color: #1F378C;
+}
+
+#card-1 {
+    margin-top: 2vh;
+    border-color: rgb(202, 200, 200);
+    height: 58vh;
+    width: 20vw;
+    font-size: small;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.card-text {
+    color: #2DB780;
+    text-align: center;
+}

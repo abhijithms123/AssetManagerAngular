@@ -1,0 +1,67 @@
+<div class="hard-header">
+    <h3>Asset Management > Dashboard</h3>
+    <hr />
+  </div>
+  
+  <div class="content">
+    <div class="request">
+      <h5 id="hw">Hardware</h5>
+      <div class="hardware-req">
+        <div class="card" *ngFor="let item of hardwareRequestCount">
+          <img
+            class="card-img-top"
+            src="..//src/assets/download.png"
+            alt="Card image"
+          />
+          <div class="card-body">
+            <h4 class="card-title">{{ item[1] }}</h4>
+            <p class="card-text">
+              <strong id="open">{{ item[0] }}</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+      <h5 id="sw">Software</h5>
+      <div class="software-req">
+        <div class="card" *ngFor="let item of softwareRequestCount">
+          <img
+            class="card-img-top"
+            src="..//src\assets\download.png"
+            alt="Card image"
+          />
+          <div class="card-body">
+            <h4 class="card-title">{{ item[1] }}</h4>
+            <p class="card-text">
+              <strong id="open">{{ item[0] }}</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="assets">
+      <h5>My Assets</h5>
+      <div class="card" id="card-1">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">MY ASSETS</th>
+                <th scope="col">TYPE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of hardwarelist">
+                <th>{{item.assetId}}</th>
+                <th scope="row">{{item.hardwareType}}</th>
+              </tr>
+              <tr *ngFor="let item of softwarelist">
+                <th scope="row">{{item.assetId}}</th>
+                <th>{{item.softwareCategory}}</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,21 @@
+<div class="head">
+    <h5>APPROVE {{this.assetType.toUpperCase()}} OPEN REQUEST</h5>
+    </div>
+    <div class="body"  *ngIf="this.confirm==false">
+     Please confirm the Approval of 
+     request with request Id 
+     <Strong>{{this.requestId}}</Strong> <br>made by
+     <Strong>{{this.user}}</Strong> <br>
+     <!-- <textarea cols="4" rows="5" [(ngModel)] = "reason"></textarea> -->
+     <br>
+     <button type="button"  class="button">CANCEL</button>
+       <button type="button" (click)="confirmApprove(this.requestId,this.assetType)"class="button1">OK</button>
+    </div>
+
+    <div class="body" *ngIf="this.confirm==true">
+      Request with request ID {{this.requestId}} has been Approved<br>
+        <button type="button"(click)=" goToApprove(this.assetType)" class="button1">OK</button>
+     </div>
+
+
+

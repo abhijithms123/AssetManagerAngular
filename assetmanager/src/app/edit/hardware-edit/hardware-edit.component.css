@@ -1,0 +1,76 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* header */
+.header{
+    padding: 2vh 0vw 3vh 2vw;
+    border-bottom: 0.5px solid #6c6c6c;
+}
+.header-link{
+    font-size: 2em;
+    font-weight: 800;
+    text-decoration: none;
+    margin-right: 1vw;
+    color: #1F378C;
+}
+
+/* form section */
+.form_container{
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    height: auto;
+    width: 95%;
+}
+.form_sub_container{
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+.input_container{
+    padding: 5vh 5vw;
+}
+.input_lable, .form_input{
+    width: 100%;
+}
+.input_lable{
+    font-size: 1vw;
+}
+.form_input{
+    font-size: 1.4vw;
+    border-radius: 6px;
+    outline: none;
+    padding: 0.2vh 0.5vw;
+}
+.form_input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+.form_input.ng-valid.ng-touched{
+    border: 2px solid green;
+}
+.submition{
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+}
+.submit-button{
+    padding: 1vh 1vw;
+    margin-left: 2vw;
+    background-color: #1F378C;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 10;
+}
+.submit-button:disabled{
+    opacity: 0.4;
+}
+
+.errorDisplay{
+    font-size: 1.2vw;
+    color: red;
+    margin-left: 4vw;
+}
